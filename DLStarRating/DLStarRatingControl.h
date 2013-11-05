@@ -22,7 +22,6 @@
 	int currentIdx;
 	UIImage *star;
 	UIImage *highlightedStar;
-	IBOutlet id<DLStarRatingDelegate> delegate;
     BOOL isFractionalRatingEnabled;
 }
 
@@ -31,10 +30,10 @@
 - (void)setStar:(UIImage*)defaultStarImage highlightedStar:(UIImage*)highlightedStarImage;
 - (void)setStar:(UIImage*)defaultStarImage highlightedStar:(UIImage*)highlightedStarImage atIndex:(int)index;
 
-@property (retain,nonatomic) UIImage *star;
-@property (retain,nonatomic) UIImage *highlightedStar;
+@property (strong,nonatomic) UIImage *star;
+@property (strong,nonatomic) UIImage *highlightedStar;
 @property (nonatomic) float rating;
-@property (assign,nonatomic) id<DLStarRatingDelegate> delegate;
+@property (assign,nonatomic) IBOutlet id<DLStarRatingDelegate> delegate;
 @property (nonatomic,assign) BOOL isFractionalRatingEnabled;
 
 @end

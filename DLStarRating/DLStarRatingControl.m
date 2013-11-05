@@ -25,13 +25,11 @@
 - (void)setupView {
 	self.clipsToBounds = YES;
 	currentIdx = -1;
-	star = [[UIImage imageNamed:@"star.png"] retain];    
-	highlightedStar = [[UIImage imageNamed:@"star_highlighted.png"] retain];    
-
+	star = [UIImage imageNamed:@"star.png"];
+	highlightedStar = [UIImage imageNamed:@"star_highlighted.png"];        
 	for (int i=0; i<numberOfStars; i++) {
 		DLStarView *v = [[DLStarView alloc] initWithDefault:self.star highlighted:self.highlightedStar position:i allowFractions:isFractionalRatingEnabled];
 		[self addSubview:v];
-		[v release];
 	}
 }
 
@@ -199,17 +197,6 @@
         return (float)(currentIdx+1)/kNumberOfFractions;
     }
 	return (NSUInteger)currentIdx+1;
-}
-
-
-#pragma mark -
-#pragma mark Memory Management
-
-- (void)dealloc {
-	self.star = nil;
-	self.highlightedStar = nil;
-	self.delegate = nil;
-	[super dealloc];
 }
 
 @end
