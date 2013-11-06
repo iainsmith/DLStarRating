@@ -29,6 +29,9 @@
 - (id)initWithFrame:(CGRect)frame andStars:(NSUInteger)_numberOfStars isFractional:(BOOL)isFract;
 - (void)setStar:(UIImage*)defaultStarImage highlightedStar:(UIImage*)highlightedStarImage;
 - (void)setStar:(UIImage*)defaultStarImage highlightedStar:(UIImage*)highlightedStarImage atIndex:(int)index;
+- (void)setStar:(UIImage*)defaultStarImage highlightedStar:(UIImage*)highlightedStarImage padding:(float)padding;
+
+- (void)setPadding:(float)padding;
 
 @property (strong,nonatomic) UIImage *star;
 @property (strong,nonatomic) UIImage *highlightedStar;

@@ -84,4 +84,13 @@
     [self setImage:highlightedImage forState:UIControlStateHighlighted];
 }
 
+- (void) resize {
+    self.frame = CGRectMake((_star.size.width*self.tag), 0, _star.size.width + _padding, _star.size.height+kEdgeInsetBottom);
+}
+
+- (void) setPadding:(float)padding {
+    _padding = padding;
+    [self resize];
+}
+
 @end

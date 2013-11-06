@@ -83,6 +83,12 @@
   }
 }
 
+- (void)setStar:(UIImage*)defaultStarImage highlightedStar:(UIImage*)highlightedStarImage padding:(float)padding {
+    for(NSInteger i = 0; i < numberOfStars; i++){
+        [self setStar:defaultStarImage highlightedStar:highlightedStarImage atIndex:i padding:padding];
+    }
+}
+
 - (void)setStar:(UIImage*)defaultStarImage highlightedStar:(UIImage*)highlightedStarImage atIndex:(int)index {
     DLStarView *selectedStar = (DLStarView*)[self subViewWithTag:index];
     
@@ -95,6 +101,29 @@
     
     [selectedStar setStarImage:defaultStarImage highlightedStarImage:highlightedStarImage];
 }
+
+- (void)setStar:(UIImage*)defaultStarImage highlightedStar:(UIImage*)highlightedStarImage atIndex:(int)index padding:(float)padding {
+    DLStarView *selectedStar = (DLStarView*)[self subViewWithTag:index];
+    
+    // check if star exists
+    if (!selectedStar) return;
+    
+    // check images for nil else use default stars
+    defaultStarImage = (defaultStarImage) ? defaultStarImage : star;
+    highlightedStarImage = (highlightedStarImage) ? highlightedStarImage : highlightedStar;
+    
+    [selectedStar setPadding:padding];
+    [selectedStar setStarImage:defaultStarImage highlightedStarImage:highlightedStarImage];
+}
+
+- (void)setPadding:(float)padding {
+    for(NSInteger i = 0; i < numberOfStars; i++){
+        DLStarView *selectedStar = (DLStarView*)[self subViewWithTag:i];
+        if (!selectedStar) return;
+        [selectedStar setPadding:padding];
+    }
+}
+
 
 #pragma mark -
 #pragma mark Touch Handling
